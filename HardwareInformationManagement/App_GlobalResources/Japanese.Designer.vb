@@ -92,6 +92,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  削除を行った場合、データが完全に消去されます。削除しますか？ に類似しているローカライズされた文字列を検索します。
+        '''</summary>
+        Public Shared ReadOnly Property delete_message() As String
+            Get
+                Return ResourceManager.GetString("delete_message", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  詳細 に類似しているローカライズされた文字列を検索します。
         '''</summary>
         Public Shared ReadOnly Property detail() As String
@@ -160,6 +169,15 @@ Namespace My.Resources
         Public Shared ReadOnly Property save() As String
             Get
                 Return ResourceManager.GetString("save", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  ユーザー一覧 に類似しているローカライズされた文字列を検索します。
+        '''</summary>
+        Public Shared ReadOnly Property user_index() As String
+            Get
+                Return ResourceManager.GetString("user_index", resourceCulture)
             End Get
         End Property
         

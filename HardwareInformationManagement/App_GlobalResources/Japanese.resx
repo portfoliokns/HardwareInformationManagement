@@ -126,6 +126,9 @@
   <data name="delete_complete" xml:space="preserve">
     <value>完全に削除</value>
   </data>
+  <data name="delete_message" xml:space="preserve">
+    <value>削除を行った場合、データが完全に消去されます。削除しますか？</value>
+  </data>
   <data name="detail" xml:space="preserve">
     <value>詳細</value>
   </data>
@@ -149,6 +152,9 @@
   </data>
   <data name="save" xml:space="preserve">
     <value>保存</value>
+  </data>
+  <data name="user_index" xml:space="preserve">
+    <value>ユーザー一覧</value>
   </data>
   <data name="user_name" xml:space="preserve">
     <value>ユーザー名</value>

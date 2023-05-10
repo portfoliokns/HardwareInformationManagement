@@ -6,7 +6,7 @@ End Code
 <h2>@ViewBag.japanese.delete</h2>
 
 <div>
-    <h4>削除を行った場合、データが完全に消去されます。削除しますか？</h4>
+    <h4>@ViewBag.japanese.delete_message</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -46,8 +46,8 @@ End Code
         @Html.AntiForgeryToken()
 
         @<div class="form-actions no-color">
-            <input type="submit" value=@ViewBag.japanese.delete class="btn btn-default" /> |
-            @Html.ActionLink(ViewBag.japanese.delete_complete, "Index")
+            <input type="submit" value=@ViewBag.japanese.delete_complete class="btn btn-default" /> |
+            @Html.ActionLink(ViewBag.japanese.back, "Index")
         </div>
     End Using
 </div>
