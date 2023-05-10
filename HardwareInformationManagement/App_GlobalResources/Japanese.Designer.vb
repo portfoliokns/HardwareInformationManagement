@@ -155,6 +155,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  設置場所一覧 に類似しているローカライズされた文字列を検索します。
+        '''</summary>
+        Public Shared ReadOnly Property position_index() As String
+            Get
+                Return ResourceManager.GetString("position_index", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  設置場所 に類似しているローカライズされた文字列を検索します。
         '''</summary>
         Public Shared ReadOnly Property position_name() As String

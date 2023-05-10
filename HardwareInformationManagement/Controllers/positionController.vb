@@ -7,15 +7,18 @@ Imports System.Net
 Imports System.Web
 Imports System.Web.Mvc
 Imports HardwareInformationManagement
+Imports HardwareInformationManagement.My.Resources
 
 Namespace Controllers
     Public Class positionController
         Inherits System.Web.Mvc.Controller
 
         Private db As New db_SystemEntities
+        Private japanese As New My.Resources.Japanese
 
         ' GET: position
         Function Index() As ActionResult
+            ViewBag.japanese = Japanese
             Return View(db.dt_position.ToList())
         End Function
 
@@ -28,11 +31,13 @@ Namespace Controllers
             If IsNothing(dt_position) Then
                 Return HttpNotFound()
             End If
+            ViewBag.japanese = Japanese
             Return View(dt_position)
         End Function
 
         ' GET: position/Create
         Function Create() As ActionResult
+            ViewBag.japanese = Japanese
             Return View()
         End Function
 
@@ -59,6 +64,7 @@ Namespace Controllers
             If IsNothing(dt_position) Then
                 Return HttpNotFound()
             End If
+            ViewBag.japanese = japanese
             Return View(dt_position)
         End Function
 
@@ -85,6 +91,7 @@ Namespace Controllers
             If IsNothing(dt_position) Then
                 Return HttpNotFound()
             End If
+            ViewBag.japanese = japanese
             Return View(dt_position)
         End Function
 

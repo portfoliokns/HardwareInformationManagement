@@ -3,15 +3,14 @@
     ViewData("Title") = "Delete"
 End Code
 
-<h2>Delete</h2>
+<h2>@ViewBag.japanese.delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>@ViewBag.japanese.delete_message</h3>
 <div>
-    <h4>dt_position</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(Function(model) model.position)
+            @ViewBag.japanese.position_name
         </dt>
 
         <dd>
@@ -23,8 +22,8 @@ End Code
         @Html.AntiForgeryToken()
 
         @<div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value=@ViewBag.japanese.delete_complete class="btn btn-default" /> |
+             @Html.ActionLink(ViewBag.japanese.back, "Index")
         </div>
     End Using
 </div>

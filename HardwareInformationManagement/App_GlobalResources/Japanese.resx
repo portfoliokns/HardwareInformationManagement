@@ -147,6 +147,9 @@
   <data name="new_create" xml:space="preserve">
     <value>新規追加</value>
   </data>
+  <data name="position_index" xml:space="preserve">
+    <value>設置場所一覧</value>
+  </data>
   <data name="position_name" xml:space="preserve">
     <value>設置場所</value>
   </data>
