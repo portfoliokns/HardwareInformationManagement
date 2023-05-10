@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="db_SystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dt_hard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="hard" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="position_id" Type="int" Nullable="false" />
+          <Property Name="comment" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="dt_position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="position" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dt_user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="user" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_dt_position">
+          <End Role="dt_position" Type="Self.dt_position" Multiplicity="1" />
+          <End Role="dt_hard" Type="Self.dt_hard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dt_position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dt_hard">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dt_user">
+          <End Role="dt_user" Type="Self.dt_user" Multiplicity="1" />
+          <End Role="dt_hard" Type="Self.dt_hard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dt_user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dt_hard">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_SystemModelStoreContainer">
+          <EntitySet Name="dt_hard" EntityType="Self.dt_hard" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dt_position" EntityType="Self.dt_position" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="dt_user" EntityType="Self.dt_user" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dt_position" Association="Self.FK_dt_position">
+            <End Role="dt_position" EntitySet="dt_position" />
+            <End Role="dt_hard" EntitySet="dt_hard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dt_user" Association="Self.FK_dt_user">
+            <End Role="dt_user" EntitySet="dt_user" />
+            <End Role="dt_hard" EntitySet="dt_hard" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_SystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dt_hard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="hard" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="position_id" Type="Int32" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="dt_position" Relationship="Self.FK_dt_position" FromRole="dt_hard" ToRole="dt_position" />
+          <NavigationProperty Name="dt_user" Relationship="Self.FK_dt_user" FromRole="dt_hard" ToRole="dt_user" />
+        </EntityType>
+        <EntityType Name="dt_position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="dt_hard" Relationship="Self.FK_dt_position" FromRole="dt_position" ToRole="dt_hard" />
+        </EntityType>
+        <EntityType Name="dt_user">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="user" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="dt_hard" Relationship="Self.FK_dt_user" FromRole="dt_user" ToRole="dt_hard" />
+        </EntityType>
+        <Association Name="FK_dt_position">
+          <End Role="dt_position" Type="Self.dt_position" Multiplicity="1" />
+          <End Role="dt_hard" Type="Self.dt_hard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dt_position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dt_hard">
+              <PropertyRef Name="position_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dt_user">
+          <End Role="dt_user" Type="Self.dt_user" Multiplicity="1" />
+          <End Role="dt_hard" Type="Self.dt_hard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dt_user">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="dt_hard">
+              <PropertyRef Name="user_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_SystemEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dt_hard" EntityType="Self.dt_hard" />
+          <EntitySet Name="dt_position" EntityType="Self.dt_position" />
+          <EntitySet Name="dt_user" EntityType="Self.dt_user" />
+          <AssociationSet Name="FK_dt_position" Association="Self.FK_dt_position">
+            <End Role="dt_position" EntitySet="dt_position" />
+            <End Role="dt_hard" EntitySet="dt_hard" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dt_user" Association="Self.FK_dt_user">
+            <End Role="dt_user" EntitySet="dt_user" />
+            <End Role="dt_hard" EntitySet="dt_hard" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_SystemModelStoreContainer" CdmEntityContainer="db_SystemEntities">
+          <EntitySetMapping Name="dt_hard">
+            <EntityTypeMapping TypeName="db_SystemModel.dt_hard">
+              <MappingFragment StoreEntitySet="dt_hard">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="hard" ColumnName="hard" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="position_id" ColumnName="position_id" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dt_position">
+            <EntityTypeMapping TypeName="db_SystemModel.dt_position">
+              <MappingFragment StoreEntitySet="dt_position">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="position" ColumnName="position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dt_user">
+            <EntityTypeMapping TypeName="db_SystemModel.dt_user">
+              <MappingFragment StoreEntitySet="dt_user">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="user" ColumnName="user" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="なし" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
