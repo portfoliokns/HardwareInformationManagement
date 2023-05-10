@@ -161,6 +161,15 @@
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\dt_hard.vb">
+      <DependentUpon>md_db_hard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dt_position.vb">
+      <DependentUpon>md_db_hard.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\dt_user.vb">
+      <DependentUpon>md_db_hard.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\md_db_hard.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -170,6 +179,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>md_db_hard.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\md_db_hard.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>md_db_hard.tt</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -237,9 +251,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>md_db_hard.Designer.vb</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\md_db_hard.edmx.diagram">
+    <Content Include="Models\md_db_hard.edmx.diagram">
       <DependentUpon>md_db_hard.edmx</DependentUpon>
-    </None>
+    </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -253,6 +267,12 @@
     <Content Include="Models\md_db_hard.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>md_db_hard.Context.vb</LastGenOutput>
+      <DependentUpon>md_db_hard.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\md_db_hard.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>md_db_hard.edmx</DependentUpon>
+      <LastGenOutput>md_db_hard.vb</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
