@@ -3,14 +3,13 @@
     ViewData("Title") = "Details"
 End Code
 
-<h2>Details</h2>
+<h2>@ViewBag.japanese.detail</h2>
 
 <div>
-    <h4>dt_hard</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(Function(model) model.hard)
+            @ViewBag.japanese.hard_name
         </dt>
 
         <dd>
@@ -18,15 +17,7 @@ End Code
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(Function(model) model.comment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.comment)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(Function(model) model.dt_position.position)
+            @ViewBag.japanese.position_name
         </dt>
 
         <dd>
@@ -34,16 +25,24 @@ End Code
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(Function(model) model.dt_user.user)
+            @ViewBag.japanese.user_name
         </dt>
 
         <dd>
             @Html.DisplayFor(Function(model) model.dt_user.user)
         </dd>
 
+        <dt>
+            @ViewBag.japanese.hard_comment
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(Function(model) model.comment)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", New With { .id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(ViewBag.japanese.edit, "Edit", New With {.id = Model.Id}) |
+    @Html.ActionLink(ViewBag.japanese.back, "Index")
 </p>

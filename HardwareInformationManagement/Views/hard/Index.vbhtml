@@ -1,50 +1,50 @@
 ﻿@ModelType IEnumerable(Of HardwareInformationManagement.dt_hard)
 @Code
-ViewData("Title") = "Index"
+    ViewData("Title") = "Index"
 End Code
 
-<h2>Index</h2>
+<h2>@ViewBag.japanese.hard_index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(ViewBag.japanese.new_create, "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(Function(model) model.hard)
+            @ViewBag.japanese.hard_name
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.comment)
+            @ViewBag.japanese.position_name
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.dt_position.position)
+            @ViewBag.japanese.user_name
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.dt_user.user)
+            @ViewBag.japanese.hard_comment
         </th>
         <th></th>
     </tr>
 
-@For Each item In Model
-    @<tr>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.hard)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.comment)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.dt_position.position)
-        </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.dt_user.user)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", New With {.id = item.Id }) |
-            @Html.ActionLink("Details", "Details", New With {.id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = item.Id })
-        </td>
-    </tr>
-Next
+    @For Each item In Model
+        @<tr>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.hard)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.dt_position.position)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.dt_user.user)
+            </td>
+            <td>
+                @Html.DisplayFor(Function(modelItem) item.comment)
+            </td>
+            <td>
+                @Html.ActionLink(ViewBag.japanese.edit, "Edit", New With {.id = item.Id}) |
+                @Html.ActionLink(ViewBag.japanese.detail, "Details", New With {.id = item.Id}) |
+                @Html.ActionLink(ViewBag.japanese.delete, "Delete", New With {.id = item.Id})
+            </td>
+        </tr>
+    Next
 
 </table>

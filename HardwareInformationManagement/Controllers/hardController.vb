@@ -13,10 +13,12 @@ Namespace Controllers
         Inherits System.Web.Mvc.Controller
 
         Private db As New db_SystemEntities
+        Private japanese As New My.Resources.Japanese
 
         ' GET: hard
         Function Index() As ActionResult
             Dim dt_hard = db.dt_hard.Include(Function(d) d.dt_position).Include(Function(d) d.dt_user)
+            ViewBag.japanese = japanese
             Return View(dt_hard.ToList())
         End Function
 
@@ -29,6 +31,7 @@ Namespace Controllers
             If IsNothing(dt_hard) Then
                 Return HttpNotFound()
             End If
+            ViewBag.japanese = japanese
             Return View(dt_hard)
         End Function
 
@@ -36,6 +39,7 @@ Namespace Controllers
         Function Create() As ActionResult
             ViewBag.position_id = New SelectList(db.dt_position, "Id", "position")
             ViewBag.user_id = New SelectList(db.dt_user, "Id", "user")
+            ViewBag.japanese = japanese
             Return View()
         End Function
 
@@ -66,6 +70,7 @@ Namespace Controllers
             End If
             ViewBag.position_id = New SelectList(db.dt_position, "Id", "position", dt_hard.position_id)
             ViewBag.user_id = New SelectList(db.dt_user, "Id", "user", dt_hard.user_id)
+            ViewBag.japanese = japanese
             Return View(dt_hard)
         End Function
 
@@ -94,6 +99,7 @@ Namespace Controllers
             If IsNothing(dt_hard) Then
                 Return HttpNotFound()
             End If
+            ViewBag.japanese = japanese
             Return View(dt_hard)
         End Function
 

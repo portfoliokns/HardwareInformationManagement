@@ -117,4 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="back" xml:space="preserve">
+    <value>戻る</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>削除</value>
+  </data>
+  <data name="delete_complete" xml:space="preserve">
+    <value>完全に削除</value>
+  </data>
+  <data name="detail" xml:space="preserve">
+    <value>詳細</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>編集</value>
+  </data>
+  <data name="hard_comment" xml:space="preserve">
+    <value>コメント</value>
+  </data>
+  <data name="hard_index" xml:space="preserve">
+    <value>管理機器一覧</value>
+  </data>
+  <data name="hard_name" xml:space="preserve">
+    <value>機器名</value>
+  </data>
+  <data name="new_create" xml:space="preserve">
+    <value>新規追加</value>
+  </data>
+  <data name="position_name" xml:space="preserve">
+    <value>設置場所</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>保存</value>
+  </data>
+  <data name="user_name" xml:space="preserve">
+    <value>ユーザー名</value>
+  </data>
 </root>

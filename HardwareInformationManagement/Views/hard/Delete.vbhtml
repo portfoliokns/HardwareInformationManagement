@@ -3,15 +3,14 @@
     ViewData("Title") = "Delete"
 End Code
 
-<h2>Delete</h2>
+<h2>@ViewBag.japanese.delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>dt_hard</h4>
+    <h4>削除を行った場合、データが完全に消去されます。削除しますか？</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(Function(model) model.hard)
+            @ViewBag.japanese.hard_name
         </dt>
 
         <dd>
@@ -19,15 +18,7 @@ End Code
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(Function(model) model.comment)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.comment)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(Function(model) model.dt_position.position)
+            @ViewBag.japanese.position_name
         </dt>
 
         <dd>
@@ -35,11 +26,19 @@ End Code
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(Function(model) model.dt_user.user)
+            @ViewBag.japanese.user_name
         </dt>
 
         <dd>
             @Html.DisplayFor(Function(model) model.dt_user.user)
+        </dd>
+
+        <dt>
+            @ViewBag.japanese.hard_comment
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(Function(model) model.comment)
         </dd>
 
     </dl>
@@ -47,8 +46,8 @@ End Code
         @Html.AntiForgeryToken()
 
         @<div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value=@ViewBag.japanese.delete class="btn btn-default" /> |
+            @Html.ActionLink(ViewBag.japanese.delete_complete, "Index")
         </div>
     End Using
 </div>
