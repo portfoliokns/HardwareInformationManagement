@@ -14,7 +14,7 @@ End Code
         @Html.HiddenFor(Function(model) model.Id)
 
      <div class="form-group">
-         @ViewBag.japanese.hard_name
+         @ViewBag.japanese.user_name
          <div class="col-md-10">
              @Html.EditorFor(Function(model) model.user, New With {.htmlAttributes = New With {.class = "form-control"}})
              @Html.ValidationMessageFor(Function(model) model.user, "", New With {.class = "text-danger"})

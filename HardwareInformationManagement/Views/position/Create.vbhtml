@@ -11,7 +11,6 @@ End Code
     @<div class="form-horizontal">
         <h4>新しい設置場所を登録してください</h4>
         <hr />
-        @ViewBag.japanese.position_name
         <div class="form-group">
             @Html.LabelFor(Function(model) model.Id, htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">

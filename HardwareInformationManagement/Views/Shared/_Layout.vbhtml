@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - マイ ASP.NET アプリケーション</title>
+    <title>@ViewBag.Title - HIMS</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -29,7 +29,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - HardwareInformationManagementSystem(HIMS)</p>
+            <p>&copy; @DateTime.Now.Year - Hardware Information Management System (HIMS)</p>
         </footer>
     </div>
 
