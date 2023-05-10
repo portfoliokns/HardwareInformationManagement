@@ -3,15 +3,15 @@
 ViewData("Title") = "Index"
 End Code
 
-<h2>Index</h2>
+<h2>@ViewBag.japanese.user_index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(ViewBag.japanese.new_create, "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(Function(model) model.user)
+            @ViewBag.japanese.user_name
         </th>
         <th></th>
     </tr>
@@ -22,9 +22,9 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.user)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", New With {.id = item.Id }) |
-            @Html.ActionLink("Details", "Details", New With {.id = item.Id }) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = item.Id })
+            @Html.ActionLink(ViewBag.japanese.edit, "Edit", New With {.id = item.Id}) |
+            @Html.ActionLink(ViewBag.japanese.detail, "Details", New With {.id = item.Id}) |
+            @Html.ActionLink(ViewBag.japanese.delete, "Delete", New With {.id = item.Id})
         </td>
     </tr>
 Next

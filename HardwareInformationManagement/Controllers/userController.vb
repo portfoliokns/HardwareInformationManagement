@@ -13,9 +13,11 @@ Namespace Controllers
         Inherits System.Web.Mvc.Controller
 
         Private db As New db_SystemEntities
+        Private japanese As New My.Resources.Japanese
 
         ' GET: user
         Function Index() As ActionResult
+            ViewBag.japanese = japanese
             Return View(db.dt_user.ToList())
         End Function
 
@@ -28,11 +30,13 @@ Namespace Controllers
             If IsNothing(dt_user) Then
                 Return HttpNotFound()
             End If
+            ViewBag.japanese = japanese
             Return View(dt_user)
         End Function
 
         ' GET: user/Create
         Function Create() As ActionResult
+            ViewBag.japanese = japanese
             Return View()
         End Function
 
@@ -59,6 +63,7 @@ Namespace Controllers
             If IsNothing(dt_user) Then
                 Return HttpNotFound()
             End If
+            ViewBag.japanese = japanese
             Return View(dt_user)
         End Function
 
@@ -85,6 +90,7 @@ Namespace Controllers
             If IsNothing(dt_user) Then
                 Return HttpNotFound()
             End If
+            ViewBag.japanese = japanese
             Return View(dt_user)
         End Function
 
