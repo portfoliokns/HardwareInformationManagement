@@ -11,15 +11,7 @@ End Code
     @<div class="form-horizontal">
         <h4>新しい管理機器を登録してください</h4>
         <hr />
-        @Html.ValidationSummary(True, "", New With { .class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(Function(model) model.Id, htmlAttributes:= New With { .class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.Id, New With { .htmlAttributes = New With { .class = "form-control" } })
-                @Html.ValidationMessageFor(Function(model) model.Id, "", New With { .class = "text-danger" })
-            </div>
-        </div>
-
+ 
         <div class="form-group">
             @ViewBag.japanese.hard_name
             <div class="col-md-10">
