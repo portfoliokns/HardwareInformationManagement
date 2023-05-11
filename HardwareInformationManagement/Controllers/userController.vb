@@ -47,6 +47,8 @@ Namespace Controllers
         <ValidateAntiForgeryToken()>
         Function Create(<Bind(Include:="Id,user")> ByVal dt_user As dt_user) As ActionResult
             If ModelState.IsValid Then
+                Dim maxId = If(db.dt_user.Any(), db.dt_user.Max(Function(d) d.Id), 0)
+                dt_user.Id = maxId + 1
                 db.dt_user.Add(dt_user)
                 db.SaveChanges()
                 Return RedirectToAction("Index")
