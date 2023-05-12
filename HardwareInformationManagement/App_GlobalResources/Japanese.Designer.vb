@@ -155,6 +155,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  ※まだこの項目は使用されているため、削除ができません。 に類似しているローカライズされた文字列を検索します。
+        '''</summary>
+        Public Shared ReadOnly Property no_delete_message() As String
+            Get
+                Return ResourceManager.GetString("no_delete_message", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  設置場所一覧 に類似しているローカライズされた文字列を検索します。
         '''</summary>
         Public Shared ReadOnly Property position_index() As String

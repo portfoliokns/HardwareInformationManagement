@@ -107,7 +107,7 @@ Namespace Controllers
             ' 外部キー制約が存在するテーブルを検索し、存在する場合、削除させない
             Dim isRecordExists As Boolean = db.dt_hard.Any(Function(p) p.position_id = id)
             If isRecordExists Then
-                ModelState.AddModelError("", String.Format("※注意：削除しようとしている情報は既に使用されているため、削除ができません。"))
+                ModelState.AddModelError("", String.Format(My.Resources.Japanese.no_delete_message))
                 ViewBag.japanese = japanese
                 Return View(dt_position)
             End If
