@@ -103,6 +103,15 @@ Namespace Controllers
         <ValidateAntiForgeryToken()>
         Function DeleteConfirmed(ByVal id As Integer) As ActionResult
             Dim dt_position As dt_position = db.dt_position.Find(id)
+
+            ' 外部キー制約が存在するテーブルを検索し、存在する場合、削除させない
+            Dim isRecordExists As Boolean = db.dt_hard.Any(Function(p) p.position_id = id)
+            If isRecordExists Then
+                ModelState.AddModelError("", String.Format("※注意：削除しようとしている情報は既に使用されているため、削除ができません。"))
+                ViewBag.japanese = japanese
+                Return View(dt_position)
+            End If
+
             db.dt_position.Remove(dt_position)
             db.SaveChanges()
             Return RedirectToAction("Index")
