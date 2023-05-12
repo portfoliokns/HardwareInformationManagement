@@ -9,6 +9,11 @@ End Code
 <div>
     <hr />
     <dl class="dl-horizontal">
+
+        <b>
+            @Html.ValidationSummary()
+        </b>
+
         <dt>
             @ViewBag.japanese.user_name
         </dt>
