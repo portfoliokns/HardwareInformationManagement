@@ -9,9 +9,12 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
 Partial Public Class dt_hard
     Public Property Id As Integer
+
+    <Required(ErrorMessage:="必須入力です")>
     Public Property hard As String
     Public Property user_id As Integer
     Public Property position_id As Integer

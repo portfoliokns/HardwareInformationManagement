@@ -9,9 +9,12 @@
 
 Imports System
 Imports System.Collections.Generic
+Imports System.ComponentModel.DataAnnotations
 
 Partial Public Class dt_user
     Public Property Id As Integer
+
+    <Required(ErrorMessage:="必須入力です")>
     Public Property user As String
 
     Public Overridable Property dt_hard As ICollection(Of dt_hard) = New HashSet(Of dt_hard)

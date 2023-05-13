@@ -5,13 +5,13 @@ End Code
 
 <h2>@ViewBag.japanese.new_create</h2>
 
-@Using (Html.BeginForm()) 
+@Using (Html.BeginForm())
     @Html.AntiForgeryToken()
-    
+
     @<div class="form-horizontal">
         <h4>新しい管理機器を登録してください</h4>
         <hr />
- 
+
         <div class="form-group">
             @ViewBag.japanese.hard_name
             <div class="col-md-10">
@@ -46,16 +46,15 @@ End Code
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value=@ViewBag.japanese.save class="btn btn-default" />
+                <input type="submit" value=@ViewBag.japanese.save class="btn btn-default" id="submitBtn" />
             </div>
         </div>
-    </div>
-End Using
+    </div>  End Using
 
 <div>
     @Html.ActionLink(ViewBag.japanese.back, "Index")
 </div>
 
-@Section Scripts 
+@Section Scripts
     @Scripts.Render("~/bundles/jqueryval")
 End Section
