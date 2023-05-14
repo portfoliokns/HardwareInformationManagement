@@ -17,19 +17,19 @@ End Code
         </dd>
 
         <dt>
-            @ViewBag.japanese.position_name
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(Function(model) model.dt_position.position)
-        </dd>
-
-        <dt>
             @ViewBag.japanese.user_name
         </dt>
 
         <dd>
             @Html.DisplayFor(Function(model) model.dt_user.user)
+        </dd>
+
+        <dt>
+            @ViewBag.japanese.position_name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(Function(model) model.dt_position.position)
         </dd>
 
         <dt>
