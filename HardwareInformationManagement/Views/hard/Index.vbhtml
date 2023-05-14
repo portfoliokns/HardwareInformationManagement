@@ -14,10 +14,10 @@ End Code
             @ViewBag.japanese.hard_name
         </th>
         <th>
-            @ViewBag.japanese.position_name
+            @ViewBag.japanese.user_name
         </th>
         <th>
-            @ViewBag.japanese.user_name
+            @ViewBag.japanese.position_name
         </th>
         <th>
             @ViewBag.japanese.hard_comment
@@ -31,10 +31,10 @@ End Code
                 @Html.DisplayFor(Function(modelItem) item.hard)
             </td>
             <td>
-                @Html.DisplayFor(Function(modelItem) item.dt_position.position)
+                @Html.DisplayFor(Function(modelItem) item.dt_user.user)
             </td>
             <td>
-                @Html.DisplayFor(Function(modelItem) item.dt_user.user)
+                @Html.DisplayFor(Function(modelItem) item.dt_position.position)
             </td>
             <td>
                 @Html.DisplayFor(Function(modelItem) item.comment)
