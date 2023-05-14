@@ -37,8 +37,15 @@ Namespace Controllers
 
         ' GET: hard/Create
         Function Create() As ActionResult
-            ViewBag.position_id = New SelectList(db.dt_position, "Id", "position")
-            ViewBag.user_id = New SelectList(db.dt_user, "Id", "user")
+            'ユーザーIDのプルダウン
+            Dim positionList = db.dt_position.ToList()
+            positionList.Insert(0, New dt_position With {.Id = 0, .position = "選択してください"})
+            ViewBag.position_id = New SelectList(positionList, "Id", "position")
+
+            '設置場所IDのプルダウン
+            Dim userList = db.dt_user.ToList()
+            userList.Insert(0, New dt_user With {.Id = 0, .user = "選択してください"})
+            ViewBag.user_id = New SelectList(userList, "Id", "user")
             ViewBag.japanese = japanese
             Return View()
         End Function
@@ -56,8 +63,20 @@ Namespace Controllers
                 db.SaveChanges()
                 Return RedirectToAction("Index")
             End If
-            ViewBag.position_id = New SelectList(db.dt_position, "Id", "position", dt_hard.position_id)
-            ViewBag.user_id = New SelectList(db.dt_user, "Id", "user", dt_hard.user_id)
+            'ViewBag.position_id = New SelectList(db.dt_position, "Id", "position", dt_hard.position_id)
+            'ViewBag.user_id = New SelectList(db.dt_user, "Id", "user", dt_hard.user_id)
+
+            'ユーザーIDのプルダウン
+            Dim positionList = db.dt_position.ToList()
+            positionList.Insert(0, New dt_position With {.Id = 0, .position = "選択してください"})
+            ViewBag.position_id = New SelectList(positionList, "Id", "position")
+
+            '設置場所IDのプルダウン
+            Dim userList = db.dt_user.ToList()
+            userList.Insert(0, New dt_user With {.Id = 0, .user = "選択してください"})
+            ViewBag.user_id = New SelectList(userList, "Id", "user")
+            ViewBag.japanese = japanese
+
             Return View(dt_hard)
         End Function
 

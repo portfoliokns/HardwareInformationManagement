@@ -16,8 +16,16 @@ Partial Public Class dt_hard
 
     <Required(ErrorMessage:="必須入力です")>
     Public Property hard As String
+
+    'Public Property user_id As Integer
+    <Required(ErrorMessage:="必須入力です")>
+    <Range(1, Integer.MaxValue, ErrorMessage:="ユーザーを選択してください")>
     Public Property user_id As Integer
+
+    <Required(ErrorMessage:="必須入力です")>
+    <Range(1, Integer.MaxValue, ErrorMessage:="位置情報を選択してください")>
     Public Property position_id As Integer
+
     Public Property comment As String
 
     Public Overridable Property dt_position As dt_position
