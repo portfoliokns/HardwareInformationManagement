@@ -124,12 +124,12 @@ Namespace Controllers
         Private Sub SetDropDownCreate()
             'ユーザーIDのプルダウン
             Dim positionList = db.dt_position.ToList()
-            positionList.Insert(0, New dt_position With {.Id = 0, .position = "選択してください"})
+            positionList.Insert(0, New dt_position With {.Id = 0, .position = japanese.please_select})
             ViewBag.position_id = New SelectList(positionList, "Id", "position")
 
             '設置場所IDのプルダウン
             Dim userList = db.dt_user.ToList()
-            userList.Insert(0, New dt_user With {.Id = 0, .user = "選択してください"})
+            userList.Insert(0, New dt_user With {.Id = 0, .user = japanese.please_select})
             ViewBag.user_id = New SelectList(userList, "Id", "user")
         End Sub
 

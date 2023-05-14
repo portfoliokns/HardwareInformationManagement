@@ -17,13 +17,12 @@ Partial Public Class dt_hard
     <Required(ErrorMessage:="必須入力です")>
     Public Property hard As String
 
-    'Public Property user_id As Integer
-    <Required(ErrorMessage:="必須入力です")>
-    <Range(1, Integer.MaxValue, ErrorMessage:="ユーザーを選択してください")>
+    <Required>
+    <Range(1, Integer.MaxValue, ErrorMessage:="必須入力です")>
     Public Property user_id As Integer
 
-    <Required(ErrorMessage:="必須入力です")>
-    <Range(1, Integer.MaxValue, ErrorMessage:="位置情報を選択してください")>
+    <Required>
+    <Range(1, Integer.MaxValue, ErrorMessage:="必須入力です")>
     Public Property position_id As Integer
 
     Public Property comment As String
