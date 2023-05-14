@@ -150,6 +150,9 @@
   <data name="no_delete_message" xml:space="preserve">
     <value>※まだこの項目は使用されているため、削除ができません。</value>
   </data>
+  <data name="please_select" xml:space="preserve">
+    <value>選択してください</value>
+  </data>
   <data name="position_index" xml:space="preserve">
     <value>設置場所一覧</value>
   </data>

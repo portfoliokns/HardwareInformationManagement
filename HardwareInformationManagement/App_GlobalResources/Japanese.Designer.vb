@@ -164,6 +164,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  選択してください に類似しているローカライズされた文字列を検索します。
+        '''</summary>
+        Public Shared ReadOnly Property please_select() As String
+            Get
+                Return ResourceManager.GetString("please_select", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  設置場所一覧 に類似しているローカライズされた文字列を検索します。
         '''</summary>
         Public Shared ReadOnly Property position_index() As String
