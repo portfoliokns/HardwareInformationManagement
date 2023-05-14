@@ -37,15 +37,7 @@ Namespace Controllers
 
         ' GET: hard/Create
         Function Create() As ActionResult
-            'ユーザーIDのプルダウン
-            Dim positionList = db.dt_position.ToList()
-            positionList.Insert(0, New dt_position With {.Id = 0, .position = "選択してください"})
-            ViewBag.position_id = New SelectList(positionList, "Id", "position")
-
-            '設置場所IDのプルダウン
-            Dim userList = db.dt_user.ToList()
-            userList.Insert(0, New dt_user With {.Id = 0, .user = "選択してください"})
-            ViewBag.user_id = New SelectList(userList, "Id", "user")
+            SetDropDownCreate()
             ViewBag.japanese = japanese
             Return View()
         End Function
@@ -63,20 +55,8 @@ Namespace Controllers
                 db.SaveChanges()
                 Return RedirectToAction("Index")
             End If
-            'ViewBag.position_id = New SelectList(db.dt_position, "Id", "position", dt_hard.position_id)
-            'ViewBag.user_id = New SelectList(db.dt_user, "Id", "user", dt_hard.user_id)
-
-            'ユーザーIDのプルダウン
-            Dim positionList = db.dt_position.ToList()
-            positionList.Insert(0, New dt_position With {.Id = 0, .position = "選択してください"})
-            ViewBag.position_id = New SelectList(positionList, "Id", "position")
-
-            '設置場所IDのプルダウン
-            Dim userList = db.dt_user.ToList()
-            userList.Insert(0, New dt_user With {.Id = 0, .user = "選択してください"})
-            ViewBag.user_id = New SelectList(userList, "Id", "user")
+            SetDropDownCreate()
             ViewBag.japanese = japanese
-
             Return View(dt_hard)
         End Function
 
@@ -89,8 +69,7 @@ Namespace Controllers
             If IsNothing(dt_hard) Then
                 Return HttpNotFound()
             End If
-            ViewBag.position_id = New SelectList(db.dt_position, "Id", "position", dt_hard.position_id)
-            ViewBag.user_id = New SelectList(db.dt_user, "Id", "user", dt_hard.user_id)
+            SetDropDownEdit(dt_hard.user_id, dt_hard.position_id)
             ViewBag.japanese = japanese
             Return View(dt_hard)
         End Function
@@ -106,8 +85,8 @@ Namespace Controllers
                 db.SaveChanges()
                 Return RedirectToAction("Index")
             End If
-            ViewBag.position_id = New SelectList(db.dt_position, "Id", "position", dt_hard.position_id)
-            ViewBag.user_id = New SelectList(db.dt_user, "Id", "user", dt_hard.user_id)
+            SetDropDownEdit(dt_hard.user_id, dt_hard.position_id)
+            ViewBag.japanese = japanese
             Return View(dt_hard)
         End Function
 
@@ -140,6 +119,23 @@ Namespace Controllers
                 db.Dispose()
             End If
             MyBase.Dispose(disposing)
+        End Sub
+
+        Private Sub SetDropDownCreate()
+            'ユーザーIDのプルダウン
+            Dim positionList = db.dt_position.ToList()
+            positionList.Insert(0, New dt_position With {.Id = 0, .position = "選択してください"})
+            ViewBag.position_id = New SelectList(positionList, "Id", "position")
+
+            '設置場所IDのプルダウン
+            Dim userList = db.dt_user.ToList()
+            userList.Insert(0, New dt_user With {.Id = 0, .user = "選択してください"})
+            ViewBag.user_id = New SelectList(userList, "Id", "user")
+        End Sub
+
+        Private Sub SetDropDownEdit(ByRef user_id As Integer, ByRef position_id As Integer)
+            ViewBag.position_id = New SelectList(db.dt_position, "Id", "position", position_id)
+            ViewBag.user_id = New SelectList(db.dt_user, "Id", "user", user_id)
         End Sub
     End Class
 End Namespace
